@@ -1,6 +1,7 @@
 package util
 
 import (
+	"os"
 	"time"
 
 	"github.com/spf13/viper"
@@ -17,15 +18,24 @@ type Config struct {
 }
 
 func LoadConfig(path string) (config Config, err error) {
-	viper.AddConfigPath(path)
-	viper.SetConfigName("app")
-	viper.SetConfigType("env")
+	// experimental feature viper 1.20.1 for binding automaticEnv to viper env registry
+	// see for more details: https://github.com/spf13/viper/issues/1797
+	v := viper.NewWithOptions(viper.ExperimentalBindStruct())
 
-	viper.AutomaticEnv()
-	if err = viper.ReadInConfig(); err != nil {
-		return
+	// read from system env and set to viper,
+	// but without set it to viper env registry (e.g. `viper.GetString("DB_DRIVER")` will not work)
+	v.AutomaticEnv()
+
+	if os.Getenv("IS_PRODUCTION") != "true" {
+		v.AddConfigPath(path)
+		v.SetConfigName("app")
+		v.SetConfigType("env")
+
+		if err = v.ReadInConfig(); err != nil {
+			return
+		}
 	}
 
-	err = viper.Unmarshal(&config)
+	err = v.Unmarshal(&config)
 	return
 }
