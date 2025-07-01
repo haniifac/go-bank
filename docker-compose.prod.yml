@@ -37,14 +37,12 @@ services:
       - bank-network
   
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: simplebank-api:1.0.0
     container_name: simplebank-app
     restart: unless-stopped
+    env_file: ./app.env
     environment:
-      - IS_PRODUCTION=false
+      - IS_PRODUCTION=true
+      - GIN_MODE=release
       - DB_SOURCE=postgresql://root:secret@pg12-bank:5432/simple_bank?sslmode=disable
     ports:
       - "8080:8080"
