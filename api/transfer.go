@@ -50,6 +50,10 @@ func (server *Server) createTransfer(ctx *gin.Context) {
 
 	result, err := server.store.TransferTx(ctx, arg)
 	if err != nil {
+		if err.Error() == "insufficient funds" {
+			ctx.JSON(http.StatusBadRequest, errResponse(err))
+			return
+		}
 
 		ctx.JSON(http.StatusInternalServerError, errResponse(err))
 		return
