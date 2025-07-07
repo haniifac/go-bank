@@ -50,6 +50,13 @@ func (server *Server) createTransfer(ctx *gin.Context) {
 
 	result, err := server.store.TransferTx(ctx, arg)
 	if err != nil {
+		// TODO: make centralized error handling using custom error types structs in util/errors.go
+		// so that we can return specific error by just doing :
+		// if err != nil {
+		// 	ctx.JSON(errorStatusCode(err), errResponse(err))
+		// 	return
+		// }
+
 		if err.Error() == "insufficient funds" {
 			ctx.JSON(http.StatusBadRequest, errResponse(err))
 			return
