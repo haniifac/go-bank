@@ -29,6 +29,7 @@ app.env
 .env
 .env.local
 .env.*.local
+.secrets
 
 # Database files
 *.db

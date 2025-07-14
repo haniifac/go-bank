@@ -37,6 +37,7 @@ services:
       - bank-network
   
   app:
+    image: ${ECR_REPO}:${IMAGE_TAG}
     container_name: simplebank-app
     restart: unless-stopped
     env_file: ./app.env
@@ -60,3 +61,5 @@ volumes:
 networks:
   bank-network:
     driver: bridge
+  tunnel:
+    external: true
