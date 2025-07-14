@@ -16,7 +16,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:12
+        image: postgres:12-alpine
         env:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: secret
@@ -51,7 +51,6 @@ jobs:
       run: |
         echo "DB_DRIVER=${{ secrets.DB_DRIVER }}" >> app.env
         echo "DB_SOURCE=${{ secrets.DB_SOURCE }}" >> app.env
-        # echo "SERVER_ADDRESS=${{ secrets.SERVER_ADDRESS }}" >> app.env
         echo "TOKEN_SYMMETRIC_KEY=${{ secrets.TOKEN_SYMMETRIC_KEY }}" >> app.env
         echo "ACCESS_TOKEN_DURATION=${{ secrets.ACCESS_TOKEN_DURATION }}" >> app.env
 
