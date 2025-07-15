@@ -50,7 +50,7 @@ jobs:
         authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
 
     - name: Wait for tailscale to connect
-      run: sleep 10
+      run: sleep 12
 
     - name: SSH and execute deployment script
       uses: appleboy/ssh-action@v1
