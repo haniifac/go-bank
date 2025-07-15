@@ -54,6 +54,9 @@ func (server *Server) setRouter() {
 	router.POST("/users", server.CreateUser)
 	router.POST("/users/login", server.loginUser)
 	router.POST("/tokens/refresh", server.renewAccessToken)
+	router.GET("/health", func(c *gin.Context) {
+		c.JSON(200, gin.H{"status": "available"})
+	})
 
 	server.router = router
 }
