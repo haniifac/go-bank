@@ -1,5 +1,5 @@
 # Stage 1: Build the Go application
-FROM golang:1.22.6-alpine3.20 AS build
+FROM golang:1.23.0-alpine AS build
 WORKDIR /app
 COPY . .
 RUN go mod tidy
