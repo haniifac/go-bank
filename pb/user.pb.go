@@ -7,6 +7,7 @@
 package pb
 
 import (
+	_ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -103,7 +104,7 @@ var File_user_proto protoreflect.FileDescriptor
 const file_user_proto_rawDesc = "" +
 	"\n" +
 	"\n" +
-	"user.proto\x12\x02pb\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcb\x01\n" +
+	"user.proto\x12\x02pb\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"\xcb\x01\n" +
 	"\x04User\x12\x1a\n" +
 	"\busername\x18\x01 \x01(\tR\busername\x12\x1b\n" +
 	"\tfull_name\x18\x02 \x01(\tR\bfullName\x12\x14\n" +
@@ -111,7 +112,9 @@ const file_user_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAtB#Z!github.com/haniifac/simplebank/pbb\x06proto3"
+	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAtB\x8a\x01\x92Ad\x12b\n" +
+	"\fBank App API\"K\n" +
+	"\fHaniif Ahmad\x12#https://github.com/haniifac/go-bank\x1a\x16haniifcandra@gmail.com2\x051.0.0Z!github.com/haniifac/simplebank/pbb\x06proto3"
 
 var (
 	file_user_proto_rawDescOnce sync.Once

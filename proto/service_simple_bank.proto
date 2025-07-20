@@ -14,6 +14,10 @@ service SimpleBank {
             post: "/v1/create_user"
             body: "*"
         };
+        // option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+        //         title: "A bit of everything"
+        //         description: "Intentionally complicated message type to cover many features of Protobuf."
+        // };
     }
     rpc LoginUser (LoginUserRequest) returns (LoginUserResponse){
         option (google.api.http) = {
