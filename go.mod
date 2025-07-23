@@ -16,7 +16,10 @@ require (
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.5.1
 )
 
-require google.golang.org/genproto/googleapis/api v0.0.0-20250603155806-513f23925822 // indirect
+require (
+	github.com/rakyll/statik v0.1.7
+	google.golang.org/genproto/googleapis/api v0.0.0-20250603155806-513f23925822
+)
 
 require (
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect

@@ -37,10 +37,7 @@ services:
       - bank-network
   
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: simplebank-api:1.0.0
+    image: simplebank-api:latest
     container_name: simplebank-app
     restart: unless-stopped
     environment:

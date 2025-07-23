@@ -1,10 +1,23 @@
 syntax="proto3";
 
 import "google/protobuf/timestamp.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 package pb;
 
 option go_package = "github.com/haniifac/simplebank/pb";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+    info: {
+        title: "Bank App API";
+        version: "1.0.0";
+        contact: {
+            name: "Haniif Ahmad";
+            url: "https://github.com/haniifac/go-bank";
+            email: "haniifcandra@gmail.com";
+        };
+    };
+};
 
 message User {
     string username = 1;
