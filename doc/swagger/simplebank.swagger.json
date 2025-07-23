@@ -21,40 +21,10 @@
     "application/json"
   ],
   "paths": {
-    "/v1/create_user": {
+    "/v1/login": {
       "post": {
-        "operationId": "SimpleBank_CreateUser",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/pbCreateUserResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/pbCreateUserRequest"
-            }
-          }
-        ],
-        "tags": [
-          "SimpleBank"
-        ]
-      }
-    },
-    "/v1/login_user": {
-      "post": {
+        "summary": "Login user and receive tokens",
+        "description": "An endpoint to login using username and password from registered user. Client will receive access token and refresh token.",
         "operationId": "SimpleBank_LoginUser",
         "responses": {
           "200": {
@@ -77,6 +47,40 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/pbLoginUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SimpleBank"
+        ]
+      }
+    },
+    "/v1/register": {
+      "post": {
+        "summary": "Create a new user",
+        "description": "An endpoint to create a new user",
+        "operationId": "SimpleBank_CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pbCreateUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateUserRequest"
             }
           }
         ],
