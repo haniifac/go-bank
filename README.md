@@ -1,4 +1,4 @@
-# 🏦 Simple Bank with Golang
+ 🏦 Simple Bank with Golang
 
 Welcome to the **Simple Bank**! This project is a simple implementation of a bank system that allows transferring money between accounts using **Golang**. It’s designed to be lightweight, efficient, and easy to extend. 🚀
 
@@ -70,7 +70,7 @@ go run main.go
 | `make postgres`                                       | Start PostgreSQL database using Docker                            |
 | `make createdb`                                       | Create a new database inside the running PostgreSQL container     |
 | `make dropdb`                                         | Drop (delete) the database                                        |
-| `make new_migrate name=![#c5f015]your_migration_name` | Create a new migration file                                       |
+| `make new_migrate name=`your_migration_name`          | Create a new migration file                                       |
 | `make migrateup`                                      | Apply all new database migrations                                 |
 | `make migrateup count=![#c5f015]N`                    | Apply N migrations                                                |
 | `make migratedown`                                    | Rollback all migrations                                           |
